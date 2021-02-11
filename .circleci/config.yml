@@ -7,14 +7,14 @@ jobs:
       - image: circleci/ruby:2.6.5-stretch-node
     steps:
       - checkout
-      # - restore_cache:
-          # key: gems-{{ checksum "Gemfile.lock" }}
+      - run: gem install bundler:2.1.4
+      - restore_cache:
+          key: gems-{{ checksum "Gemfile.lock" }}
       - run: bundle install --path vendor/bundle
       - save_cache:
           key: gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      # - run: gem install bundler:2.1.4
       # - run: bundle init
       - run: echo gem \"danger\" >> Gemfile 
       # - run: cat Gemfile
