@@ -10,4 +10,5 @@ jobs:
       - run: gem install bundler:2.1.4
       - run: bundle init
       - run: gem install danger
+      - run: bundle install
       - run: bundle exec danger init
