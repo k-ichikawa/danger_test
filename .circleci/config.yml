@@ -8,7 +8,8 @@ jobs:
     steps:
       - checkout
       - run: gem install bundler:2.1.4
-      - run: gem 'danger'
-      - run:
-          name: Run Danger file
-          command: bundle exec danger --verbose
+      - run: gem source --list
+      # - run: gem 'danger'
+      # - run:
+          # name: Run Danger file
+          # command: bundle exec danger --verbose
