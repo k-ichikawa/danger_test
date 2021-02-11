@@ -5,5 +5,10 @@ jobs:
       - image: circleci/node:4.8.2 # プライマリコンテナです。このなかでジョブコマンドが実行されます
     steps:
       - run:
+          name: update bundler
+          command: |
+            gem update --system
+            gem install bundler:2.1.4      
+      - run:
           name: Run Danger file
           command: bundle exec danger --verbose
