@@ -12,7 +12,7 @@ jobs:
       - run: echo gem \"danger\" >> Gemfile 
       - run: cat Gemfile
       - run: bundle install
-      - run: bundle exec danger init -y
+      - run: yes|bundle exec danger init
       - run:
           name: Run Danger file
           command: bundle exec danger --verbose 
