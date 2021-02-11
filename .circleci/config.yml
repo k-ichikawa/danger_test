@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - run: gem install bundler:2.1.4
+      - run: bundle init
       # - restore_cache:
           # key: gems-{{ checksum "Gemfile.lock" }}
       - run: bundle install --path vendor/bundle
@@ -15,7 +16,6 @@ jobs:
           key: gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      # - run: bundle init
       - run: echo gem \"danger\" >> Gemfile 
       # - run: cat Gemfile
       - run: bundle install
