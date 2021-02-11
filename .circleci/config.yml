@@ -7,9 +7,6 @@ jobs:
       - image: circleci/ruby:2.6.5-stretch-node
     steps:
       - checkout
-      - run: gem install bundler:2.1.4
-      - run: bundle init
-      - run: echo gem \"danger\" >> Gemfile 
-      - run: cat Gemfile
-      - run: bundle install
-      - run: bundle exec danger init
+      - run:
+          name: Run Danger file
+          command: bundle exec danger --verbose 
