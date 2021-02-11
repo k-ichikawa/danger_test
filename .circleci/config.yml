@@ -1,14 +1,13 @@
 version: 2
+orbs:
+  ruby: circleci/ruby@0.1.2
 jobs:
   build:
-    docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
-      - image: circleci/node:4.8.2 # プライマリコンテナです。このなかでジョブコマンドが実行されます
+    docker:
+      - image: circleci/ruby:2.6.5-stretch-node
     steps:
-      - run:
-          name: update bundler
-          command: |
-            gem update --system
-            gem install bundler:2.1.4      
+      - checkout
+      - run: gem install bundler:2.1.4
       - run:
           name: Run Danger file
           command: bundle exec danger --verbose
